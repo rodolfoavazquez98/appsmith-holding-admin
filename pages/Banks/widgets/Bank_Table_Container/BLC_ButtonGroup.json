@@ -1,0 +1,65 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonVariant": "PRIMARY",
+  "childStylesheet": {
+    "button": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "groupButtons.groupButton2.buttonColor"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "groupButtons.groupButton2.onClick"
+    }
+  ],
+  "groupButtons": {
+    "groupButton2": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "disabledWhenInvalid": false,
+      "iconName": "add",
+      "id": "groupButton2",
+      "index": 0,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "Add",
+      "menuItems": {},
+      "onClick": "{{showModal(Create_Bank_Modal.name);}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    }
+  },
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "60vsbjnc43",
+  "leftColumn": 56,
+  "minWidth": 450,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 31,
+  "mobileRightColumn": 55,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "orientation": "horizontal",
+  "parentColumnSpace": 6.21875,
+  "parentId": "yz9jsi1ebo",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "topRow": 0,
+  "type": "BUTTON_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "83oqkvmck3",
+  "widgetName": "BLC_ButtonGroup"
+}

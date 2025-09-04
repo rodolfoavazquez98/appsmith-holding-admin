@@ -1,0 +1,15 @@
+SELECT 
+    b.id,
+    concat_ws(' - ', b.bic_code, b.name) AS bank_identity
+FROM public.banks b
+WHERE b.bic_code IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    b.id,
+     concat_ws(' - ', b.swift_code, b.name) AS bank_identity
+FROM public.banks b
+WHERE b.swift_code IS NOT NULL
+
+ORDER BY bank_identity;

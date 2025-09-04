@@ -1,0 +1,17 @@
+UPDATE public."banks" SET
+  "swift_code" = NULLIF('{{ Update_Bank_Form.fieldState.swift_code.isVisible 
+												? Update_Bank_Form.formData.swift_code 
+												: Update_Bank_Form.sourceData.swift_code }}', ''),
+  "country_id" = NULLIF('{{ Update_Bank_Form.fieldState.country_id.isVisible 
+												? Update_Bank_Form.formData.country_id 
+												: Update_Bank_Form.sourceData.country_id }}', '')::uuid,
+  "bic_code" = NULLIF('{{ Update_Bank_Form.fieldState.bic_code.isVisible 
+											? Update_Bank_Form.formData.bic_code 
+											: Update_Bank_Form.sourceData.bic_code }}', ''),
+  "name" = NULLIF('{{ Update_Bank_Form.fieldState.name.isVisible 
+									? Update_Bank_Form.formData.name 
+									: Update_Bank_Form.sourceData.name }}', ''),
+  "cb_correspondent_account" = NULLIF('{{ Update_Bank_Form.fieldState.cb_correspondent_account.isVisible 
+																			? Update_Bank_Form.formData.cb_correspondent_account 
+																			: Update_Bank_Form.sourceData.cb_correspondent_account }}', '')
+WHERE "id" = {{ Banks_Table.selectedRow.id }};

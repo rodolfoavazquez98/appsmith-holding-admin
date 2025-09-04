@@ -1,0 +1,24 @@
+{
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_9f8bfbda-9869-4d8f-8104-f79a0f970a1c",
+  "id": "Banks_BankService",
+  "unpublishedCollection": {
+    "name": "BankService",
+    "pageId": "Banks",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "banks",
+        "value": "[]"
+      },
+      {
+        "name": "correspondentAccounts",
+        "value": "[]"
+      },
+      {
+        "name": "selectedBank",
+        "value": "null"
+      }
+    ]
+  }
+}

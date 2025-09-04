@@ -1,0 +1,22 @@
+SELECT 
+	public.banks.id as id,
+	public.banks.name as name,
+	public.banks.swift_code as swift_code,
+	public.banks.bic_code as bic_code,
+	public.banks.cb_correspondent_account as cb_correspondent_account,
+	public.countries.code as country_code,
+	public.countries.id as country_id
+FROM public.banks
+JOIN
+  public.countries ON public.countries.id = public.banks.country_id
+WHERE 
+ {{ 
+this.params.searchText? 
+"(public.banks.swift_code ILIKE '%' || '" + this.params.searchText + "' || '%' " +
+"OR public.banks.bic_code ILIKE '%' || '" + this.params.searchText + "' || '%' " +
+"OR public.banks.name ILIKE '%' || '" + this.params.searchText + "' || '%')" 
+: 'TRUE' 
+}}	
+ORDER BY {{this.params.sortColumn}} {{this.params.sortOrder}}
+LIMIT {{this.params.pageSize}}
+OFFSET {{(this.params.pageNo - 1) * this.params.pageSize}};

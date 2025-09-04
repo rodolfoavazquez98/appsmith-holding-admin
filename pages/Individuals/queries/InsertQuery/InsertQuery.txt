@@ -1,0 +1,10 @@
+INSERT INTO public."individuals" (
+	"first_name",
+	"last_name",
+	"birth_date",
+	"middle_name")
+VALUES (
+	'{{insert_form.formData.first_name}}',
+	'{{insert_form.formData.last_name}}',
+	'{{insert_form.formData.birth_date}}',
+	'{{insert_form.formData.middle_name}}');

@@ -1,0 +1,13 @@
+SELECT 
+	public.bank_correspondent_accounts.id as id,
+	public.bank_correspondent_accounts.account as account,
+	public.currencies.alphabetic_code as currency_code,
+	public.banks.name as bank_correspondent_name,
+	public.banks.swift_code as bank_correspondent_swift_code,
+	public.banks.bic_code as bank_correspondent_bic_code
+FROM public.bank_correspondent_accounts 
+JOIN
+  public.currencies ON public.currencies.id = public.bank_correspondent_accounts.currency_id
+JOIN
+  public.banks ON public.banks.id = public.bank_correspondent_accounts.bank_correspondent_id
+WHERE bank_id = {{this.params.bankId}};

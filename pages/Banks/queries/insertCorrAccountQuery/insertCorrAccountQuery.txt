@@ -1,0 +1,6 @@
+INSERT INTO public.bank_correspondent_accounts (account, currency_id, bank_id, bank_correspondent_id) VALUES (
+	{{this.params.account}},
+	{{this.params.currencyId}},																																																		{{this.params.bankId}},
+	{{this.params.bankCorrespondentId}}
+)
+RETURNING *;

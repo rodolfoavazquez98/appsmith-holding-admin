@@ -1,0 +1,1 @@
+SELECT id as value, name as label FROM public.countries;

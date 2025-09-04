@@ -1,0 +1,14 @@
+INSERT INTO public."banks" (
+	"swift_code",
+	"country_id",
+	"bic_code",
+	"cb_correspondent_account",
+	"name"
+)
+VALUES (
+	NULLIF('{{Create_Bank_Form.formData.swift_code}}', ''),
+	NULLIF('{{Create_Bank_Form.formData.country_id}}', '')::uuid,
+	NULLIF('{{Create_Bank_Form.formData.bic_code}}', ''),
+	NULLIF('{{Create_Bank_Form.formData.cb_correspondent_account}}', ''),
+	NULLIF('{{Create_Bank_Form.formData.name}}', '')
+);

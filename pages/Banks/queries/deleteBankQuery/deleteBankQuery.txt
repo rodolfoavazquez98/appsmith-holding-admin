@@ -1,0 +1,2 @@
+DELETE FROM public.banks
+  WHERE public.banks.id = {{this.params.id}};

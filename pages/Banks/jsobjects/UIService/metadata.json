@@ -1,0 +1,28 @@
+{
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_bd88d86b-31e8-4617-8477-21374a426d0f",
+  "id": "Banks_UIService",
+  "unpublishedCollection": {
+    "name": "UIService",
+    "pageId": "Banks",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "deleteContext",
+        "value": "{\n  entityId: null,\n  entityName: null\n}"
+      },
+      {
+        "name": "isDeleting",
+        "value": "false"
+      },
+      {
+        "name": "deleteCallback",
+        "value": "null"
+      },
+      {
+        "name": "afterDeleteCallback",
+        "value": "null"
+      }
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+DELETE FROM public.bank_correspondent_accounts
+  WHERE public.bank_correspondent_accounts.id = {{this.params.id}};
