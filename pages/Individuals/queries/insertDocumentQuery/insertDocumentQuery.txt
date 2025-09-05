@@ -1,0 +1,4 @@
+INSERT INTO public.individual_documents 
+(individual_id, document_type_id, file_name, file_key, mime_type, expiry_date, uploaded_by)
+VALUES ($1, $2, $3, $4, $5, $6, $7)
+RETURNING id;

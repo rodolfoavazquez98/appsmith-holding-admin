@@ -1,0 +1,8 @@
+SELECT 
+    id,
+    code,
+    name,
+    description,
+    requires_expiry
+FROM public.individual_document_types
+ORDER BY name ASC;

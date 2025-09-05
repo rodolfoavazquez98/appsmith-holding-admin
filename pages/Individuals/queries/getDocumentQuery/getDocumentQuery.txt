@@ -1,0 +1,17 @@
+SELECT 
+    d.id,
+    d.individual_id,
+    d.document_type_id,
+    dt.code AS document_type_code,
+    dt.name AS document_type_name,
+    d.file_name,
+    d.file_key,
+    d.mime_type,
+    d.uploaded_at,
+    d.expiry_date,
+    d.uploaded_by,
+    u.name AS creator_name
+FROM public.individual_documents d
+LEFT JOIN public.individual_document_types dt
+    ON d.document_type_id = dt.id
+WHERE d.id = {{ id }};
