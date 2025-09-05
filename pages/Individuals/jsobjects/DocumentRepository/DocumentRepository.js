@@ -1,4 +1,5 @@
 export default {
+
 	async createDocument(data) {
 		try {
 			return await insertDocumentQuery.run(data);
@@ -8,7 +9,7 @@ export default {
 		}
 	},
 
-	async fetchDocuments(individualId) {
+	async fetchIndividualDocuments(individualId) {
 		try {
 			return await getIndividualDocumentsQuery.run({ individual_id: individualId });
 		} catch (e) {
@@ -53,3 +54,4 @@ export default {
 			return [];
 		}
 	}
+}

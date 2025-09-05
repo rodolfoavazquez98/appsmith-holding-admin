@@ -6,6 +6,19 @@
     "pageId": "Individuals",
     "pluginId": "js-plugin",
     "pluginType": "JS",
-    "variables": []
+    "variables": [
+      {
+        "name": "bucketName",
+        "value": "'individuals'"
+      },
+      {
+        "name": "objectsCatalog",
+        "value": "'documents'"
+      },
+      {
+        "name": "documentTypes",
+        "value": "null"
+      }
+    ]
   }
 }

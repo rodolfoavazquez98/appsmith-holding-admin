@@ -3,4 +3,4 @@ UPDATE public."individuals" SET
 		"last_name" = '{{update_form.fieldState.last_name.isVisible ? update_form.formData.last_name : update_form.sourceData.last_name}}',
     "birth_date" = '{{update_form.fieldState.birth_date.isVisible ? update_form.formData.birth_date : update_form.sourceData.birth_date}}',
 		"middle_name" = '{{update_form.fieldState.middle_name.isVisible ? update_form.formData.middle_name : update_form.sourceData.middle_name}}'
-WHERE "id" = {{data_table.selectedRow.id}};
+WHERE "id" = {{Individuals_Table.selectedRow.id}};

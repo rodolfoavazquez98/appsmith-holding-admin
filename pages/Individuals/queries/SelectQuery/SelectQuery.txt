@@ -1,5 +1,5 @@
 SELECT * FROM public."individuals"
-WHERE "first_name" ilike '%{{data_table.searchText || ""}}%'
-ORDER BY "{{data_table.sortOrder.column || 'first_name'}}" {{data_table.sortOrder.order || 'ASC'}}
-LIMIT {{data_table.pageSize}}
-OFFSET {{(data_table.pageNo - 1) * data_table.pageSize}};
+WHERE "first_name" ilike '%{{Individuals_Table.searchText || ""}}%'
+ORDER BY "{{Individuals_Table.sortOrder.column || 'first_name'}}" {{Individuals_Table.sortOrder.order || 'ASC'}}
+LIMIT {{Individuals_Table.pageSize}}
+OFFSET {{(Individuals_Table.pageNo - 1) * Individuals_Table.pageSize}};

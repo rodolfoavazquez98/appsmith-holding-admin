@@ -1,10 +1,18 @@
 export default {
-	async addDocument(individualId, file, documentTypeId, uploadedBy, expiryDate = null) {
+	bucketName:  'individuals',
+	objectsCatalog: 'documents', 
+	documentTypes: null,
+
+	async init(){
+		await this._loadDocumetTypes();
+	},
+
+	async addDocument(individualId, file) {
 		try {
 			const fileKey = `${individualId}/${Date.now()}_${file.name}`;
-			await DocumentStorage.uploadFile(file, fileKey);
-			
-			
+			await MinIOStorage.uploadFile(this.bucketName, fileKey, file);
+
+			/*
 			return await DocumentRepository.createDocument({
 				individual_id: individualId,
 				document_type_id: documentTypeId,
@@ -13,7 +21,8 @@ export default {
 				mime_type: file.type,
 				uploaded_by: uploadedBy,
 				expiry_date: expiryDate
-			});
+			});*/
+
 		} catch (e) {
 			console.error("Failed to add document", e);
 			throw e;
@@ -21,12 +30,12 @@ export default {
 	},
 
 	async getDocuments(individualId) {
-		const documents = await DocumentRepository.fetchDocuments(individualId);
+		const documents = await DocumentRepository.fetchIndividualDocuments(individualId);
 
 		// добавить signedUrl и creator_name
 		return await Promise.all(
 			documents.map(async doc => {
-				const signedUrl = await DocumentStorage.getSignedUrl(doc.file_key);
+				const signedUrl = await MinIOStorage.getSignedUrl(doc.file_key);
 				return {
 					...doc,
 					creator_name: doc.creator_name || "Unknown",
@@ -40,7 +49,7 @@ export default {
 		const doc = await DocumentRepository.fetchDocumentById(documentId);
 		if (!doc) throw new Error("Document not found");
 
-		await DocumentStorage.deleteFile(doc.file_key);
+		await MinIOStorage.deleteFile(doc.file_key);
 		await DocumentRepository.deleteDocument(documentId);
 		return true;
 	},
@@ -49,7 +58,11 @@ export default {
 		return await DocumentRepository.updateDocument(documentId, data);
 	},
 
-	async getDocumentTypes() {
-		return await DocumentRepository.fetchDocumentTypes();
+	getDocumentTypes() {
+		return this.documentTypes || [];
+	},
+
+	async _loadDocumetTypes(){
+		this.documentTypes = await DocumentRepository.fetchDocumentTypes();
 	}
 }

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n    d.id,\n    d.individual_id,\n    d.document_type_id,\n    dt.code AS document_type_code,\n    dt.name AS document_type_name,\n    d.file_name,\n    d.file_key,\n    d.mime_type,\n    d.uploaded_at,\n    d.expiry_date,\n    d.uploaded_by,\n    u.name AS creator_name\nFROM public.individual_documents d\nLEFT JOIN public.individual_document_types dt\n    ON d.document_type_id = dt.id\nWHERE d.id = {{ id }};",
+      "body": "SELECT \n    d.id,\n    d.individual_id,\n    d.document_type_id,\n    dt.code AS document_type_code,\n    dt.name AS document_type_name,\n    d.file_name,\n    d.file_key,\n    d.mime_type,\n    d.uploaded_at,\n    d.expiry_date,\n    d.uploaded_by,\n    u.name AS creator_name\nFROM public.individual_documents d\nLEFT JOIN public.individual_document_types dt\n    ON d.document_type_id = dt.id\nWHERE d.id = {{ this.params.id }};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

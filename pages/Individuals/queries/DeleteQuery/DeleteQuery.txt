@@ -1,2 +1,2 @@
 DELETE FROM public."individuals"
-  WHERE "id" = {{data_table.triggeredRow.id}};
+  WHERE "id" = {{Individuals_Table.triggeredRow.id}};

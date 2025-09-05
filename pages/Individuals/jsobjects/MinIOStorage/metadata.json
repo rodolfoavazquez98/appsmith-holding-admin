@@ -1,8 +1,8 @@
 {
   "gitSyncId": "68b935f4a1ac1d41e88e6ef0_bca529d5-3f10-47e4-93ae-fdf9b271c99a",
-  "id": "Individuals_DocumentStorage",
+  "id": "Individuals_MinIOStorage",
   "unpublishedCollection": {
-    "name": "DocumentStorage",
+    "name": "MinIOStorage",
     "pageId": "Individuals",
     "pluginId": "js-plugin",
     "pluginType": "JS",

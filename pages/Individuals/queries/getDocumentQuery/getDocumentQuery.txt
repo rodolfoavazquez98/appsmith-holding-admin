@@ -14,4 +14,4 @@ SELECT
 FROM public.individual_documents d
 LEFT JOIN public.individual_document_types dt
     ON d.document_type_id = dt.id
-WHERE d.id = {{ id }};
+WHERE d.id = {{ this.params.id }};

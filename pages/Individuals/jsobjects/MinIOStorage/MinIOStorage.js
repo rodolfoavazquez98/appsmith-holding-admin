@@ -1,25 +1,25 @@
 export default {
-	async uploadFile(file, key) {
+	async uploadFile(bucket, path, file) {
 		try {
-			return await uploadFileToMinioQuery.run({ file, key });
+			return await uploadFile.run({bucket, path, data: file});
 		} catch (e) {
 			console.error("Failed to upload file", e);
 			throw e;
 		}
 	},
 
-	async getSignedUrl(key) {
+	async listFiles(bucket, pathPrefix = ""){
 		try {
-			return await getSignedUrlQuery.run({ key });
+			return await listFiles.run({bucket, prefix: pathPrefix});
 		} catch (e) {
 			console.error("Failed to get signed URL", e);
 			return null;
 		}
 	},
 
-	async deleteFile(key) {
+	async deleteFile(bucket, path) {
 		try {
-			return await deleteFileFromMinioQuery.run({ key });
+			return await deleteFile.run({ bucket, path });
 		} catch (e) {
 			console.error("Failed to delete file", e);
 			throw e;

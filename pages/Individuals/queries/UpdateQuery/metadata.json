@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "UPDATE public.\"individuals\" SET\n\t\t\"first_name\" = '{{update_form.fieldState.first_name.isVisible ? update_form.formData.first_name : update_form.sourceData.first_name}}',\n\t\t\"last_name\" = '{{update_form.fieldState.last_name.isVisible ? update_form.formData.last_name : update_form.sourceData.last_name}}',\n    \"birth_date\" = '{{update_form.fieldState.birth_date.isVisible ? update_form.formData.birth_date : update_form.sourceData.birth_date}}',\n\t\t\"middle_name\" = '{{update_form.fieldState.middle_name.isVisible ? update_form.formData.middle_name : update_form.sourceData.middle_name}}'\nWHERE \"id\" = {{data_table.selectedRow.id}};",
+      "body": "UPDATE public.\"individuals\" SET\n\t\t\"first_name\" = '{{update_form.fieldState.first_name.isVisible ? update_form.formData.first_name : update_form.sourceData.first_name}}',\n\t\t\"last_name\" = '{{update_form.fieldState.last_name.isVisible ? update_form.formData.last_name : update_form.sourceData.last_name}}',\n    \"birth_date\" = '{{update_form.fieldState.birth_date.isVisible ? update_form.formData.birth_date : update_form.sourceData.birth_date}}',\n\t\t\"middle_name\" = '{{update_form.fieldState.middle_name.isVisible ? update_form.formData.middle_name : update_form.sourceData.middle_name}}'\nWHERE \"id\" = {{Individuals_Table.selectedRow.id}};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
