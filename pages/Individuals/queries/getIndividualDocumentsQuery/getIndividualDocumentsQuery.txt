@@ -1,6 +1,13 @@
-SELECT d.id, d.file_name, d.file_key, d.mime_type, d.uploaded_at, d.expiry_date,
-       t.code as type_code, t.name as type_name
+SELECT 
+d.id, 
+d.file_name, 
+d.dir, 
+d.mime_type, 
+d.uploaded_at, 
+d.expiry_date,
+t.code as type_code,
+t.name as type_name
 FROM public.individual_documents d
 JOIN public.individual_document_types t ON d.document_type_id = t.id
-WHERE d.individual_id = $1
+WHERE d.individual_id = {{this.params.id}}
 ORDER BY d.uploaded_at DESC;

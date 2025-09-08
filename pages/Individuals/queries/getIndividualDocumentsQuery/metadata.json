@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT d.id, d.file_name, d.file_key, d.mime_type, d.uploaded_at, d.expiry_date,\n       t.code as type_code, t.name as type_name\nFROM public.individual_documents d\nJOIN public.individual_document_types t ON d.document_type_id = t.id\nWHERE d.individual_id = $1\nORDER BY d.uploaded_at DESC;",
+      "body": "SELECT \nd.id, \nd.file_name, \nd.dir, \nd.mime_type, \nd.uploaded_at, \nd.expiry_date,\nt.code as type_code,\nt.name as type_name\nFROM public.individual_documents d\nJOIN public.individual_document_types t ON d.document_type_id = t.id\nWHERE d.individual_id = {{this.params.id}}\nORDER BY d.uploaded_at DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,7 +22,11 @@
       "name": "Business Data",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "name": "getIndividualDocumentsQuery",
     "pageId": "Individuals",
     "runBehaviour": "MANUAL",

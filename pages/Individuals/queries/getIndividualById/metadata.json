@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_1a25280c-4a25-4312-b72a-a61d08323e0b",
-  "id": "Individuals_insertDocumentQuery",
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_ea2a4cfa-3353-4e71-bbff-02e0584590e3",
+  "id": "Individuals_getIndividualById",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "INSERT INTO public.individual_documents \n(individual_id, document_type_id, file_name, dir, mime_type)\nVALUES (\n\t{{this.params.individual_id}},\n\t{{this.params.document_type_id}},\n\t{{this.params.file_name}},\n\t{{this.params.dir}},\n\t{{this.params.mime_type}})\nRETURNING id;",
+      "body": "SELECT * FROM public.\"individuals\" WHERE id = {{this.params.id}};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "name": "insertDocumentQuery",
+    "name": "getIndividualById",
     "pageId": "Individuals",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

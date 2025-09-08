@@ -1,22 +1,12 @@
 {
-  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_4ade3754-2550-452a-82ea-78f6e886483e",
-  "id": "Individuals_DocumentService.addDocument",
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_267a78ba-c3ff-48c6-9ec6-5ce7261b40e6",
+  "id": "Individuals_DocumentService.getIndividualDocuments",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
     "actionConfiguration": {
       "encodeParamsToggle": true,
-      "jsArguments": [
-        {
-          "name": "individualId"
-        },
-        {
-          "name": "documentTypeId"
-        },
-        {
-          "name": "files"
-        }
-      ],
+      "jsArguments": [],
       "paginationType": "NONE",
       "timeoutInMillisecond": 10000
     },
@@ -32,8 +22,8 @@
         "key": "body"
       }
     ],
-    "fullyQualifiedName": "DocumentService.addDocument",
-    "name": "addDocument",
+    "fullyQualifiedName": "DocumentService.getIndividualDocuments",
+    "name": "getIndividualDocuments",
     "pageId": "Individuals",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

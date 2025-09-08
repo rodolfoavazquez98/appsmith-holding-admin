@@ -37,7 +37,7 @@
   "columnUpdatedAt": 1756910506385,
   "compactMode": "SHORT",
   "defaultPageSize": 0,
-  "defaultSelectedRowIndex": "0",
+  "defaultSelectedRowIndex": "-1",
   "delimiter": ",",
   "derivedColumns": {
     "customColumn1": {
@@ -109,6 +109,9 @@
     },
     {
       "key": "tableData"
+    },
+    {
+      "key": "onRowSelected"
     }
   ],
   "dynamicTriggerPathList": [
@@ -123,6 +126,9 @@
     },
     {
       "key": "onSort"
+    },
+    {
+      "key": "onRowSelected"
     }
   ],
   "enableClientSideSearch": true,
@@ -142,6 +148,7 @@
   "labelTextSize": "0.875rem",
   "leftColumn": 0,
   "onPageChange": "{{SelectQuery.run()}}",
+  "onRowSelected": "{{DocumentService.loadIndividualDocuments(Individuals_Table.selectedRow.id)}}",
   "onSearchTextChanged": "{{SelectQuery.run()}}",
   "onSort": "{{SelectQuery.run()}}",
   "parentColumnSpace": 16.3125,

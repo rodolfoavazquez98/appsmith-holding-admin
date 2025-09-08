@@ -1,4 +1,9 @@
 INSERT INTO public.individual_documents 
-(individual_id, document_type_id, file_name, file_key, mime_type, expiry_date, uploaded_by)
-VALUES ($1, $2, $3, $4, $5, $6, $7)
+(individual_id, document_type_id, file_name, dir, mime_type)
+VALUES (
+	{{this.params.individual_id}},
+	{{this.params.document_type_id}},
+	{{this.params.file_name}},
+	{{this.params.dir}},
+	{{this.params.mime_type}})
 RETURNING id;

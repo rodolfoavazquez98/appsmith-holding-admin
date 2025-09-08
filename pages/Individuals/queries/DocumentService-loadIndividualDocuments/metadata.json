@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_4e2bddf1-ee38-41e2-8cfd-5dfa64b1e606",
-  "id": "Individuals_DocumentService._generateDocumentPath",
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_7106f237-af6e-427c-a57a-08b82265cee0",
+  "id": "Individuals_DocumentService.loadIndividualDocuments",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -9,12 +9,6 @@
       "jsArguments": [
         {
           "name": "individualId"
-        },
-        {
-          "name": "docType"
-        },
-        {
-          "name": "fileName"
         }
       ],
       "paginationType": "NONE",
@@ -32,8 +26,8 @@
         "key": "body"
       }
     ],
-    "fullyQualifiedName": "DocumentService._generateDocumentPath",
-    "name": "_generateDocumentPath",
+    "fullyQualifiedName": "DocumentService.loadIndividualDocuments",
+    "name": "loadIndividualDocuments",
     "pageId": "Individuals",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

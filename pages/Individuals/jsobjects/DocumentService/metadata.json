@@ -17,7 +17,11 @@
       },
       {
         "name": "documentTypes",
-        "value": "null"
+        "value": "[]"
+      },
+      {
+        "name": "individualDocuments",
+        "value": "[]"
       }
     ]
   }

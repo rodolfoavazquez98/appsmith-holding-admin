@@ -11,7 +11,7 @@ export default {
 
 	async fetchIndividualDocuments(individualId) {
 		try {
-			return await getIndividualDocumentsQuery.run({ individual_id: individualId });
+			return await getIndividualDocumentsQuery.run({ id: individualId });
 		} catch (e) {
 			console.error("Failed to fetch documents", e);
 			return [];
