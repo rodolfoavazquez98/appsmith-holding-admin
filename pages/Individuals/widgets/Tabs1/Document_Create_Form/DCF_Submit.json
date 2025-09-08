@@ -34,7 +34,7 @@
   "mobileRightColumn": 62,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "onClick": "{{DocumentService.addDocument(Individuals_Table.selectedRow.id, DCF_Doc_FilePicker.files[0]);}}",
+  "onClick": "{{DocumentService.addDocument(Individuals_Table.selectedRow.id, DCF_Doc_FilePicker.files);}}",
   "parentId": "wexu6fyuj6",
   "placement": "CENTER",
   "recaptchaType": "V3",

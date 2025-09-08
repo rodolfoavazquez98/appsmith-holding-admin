@@ -7,42 +7,51 @@ export default {
 		await this._loadDocumetTypes();
 	},
 
-	async addDocument(individualId, file) {
+
+
+	async addDocument(individualId, files) {
 		try {
-			const fileKey = `${individualId}/${Date.now()}_${file.name}`;
-			await MinIOStorage.uploadFile(this.bucketName, fileKey, file);
+			if (!Array.isArray(files) || files.length === 0) {
+				throw new Error("No files provided");
+			}
 
-			/*
-			return await DocumentRepository.createDocument({
-				individual_id: individualId,
-				document_type_id: documentTypeId,
-				file_name: file.name,
-				file_key: fileKey,
-				mime_type: file.type,
-				uploaded_by: uploadedBy,
-				expiry_date: expiryDate
-			});*/
+			// Separate PDFs and images
+			const pdfFiles = files.filter(f => f.type === "application/pdf");
+			const imageFiles = files.filter(f => f.type.startsWith("image/"));
+			const invalidFiles = files.filter(f => !f.type.startsWith("image/") && f.type !== "application/pdf");
 
+			if (invalidFiles.length > 0) {
+				throw new Error(`Invalid file types provided: ${invalidFiles.map(f => f.type).join(", ")}`);
+			}
+
+			let finalFile;
+
+			if (pdfFiles.length === 1 && imageFiles.length === 0) {
+				// Single PDF -> use as is
+				finalFile = pdfFiles[0];
+			} else if (pdfFiles.length + imageFiles.length > 0) {
+				// Merge all PDFs and/or images into one PDF
+				finalFile = await PDFService.mergeFilesToPdf([...pdfFiles, ...imageFiles]);
+			} else {
+				throw new Error("No valid files to process");
+			}
+
+			// Build S3/Minio path: individualId/timestamp_filename
+			const filePath = `${individualId}/${Date.now()}_${finalFile.name}`;
+
+			// Upload to Minio (finalFile is FilePicker-like object)
+			await MinIOStorage.uploadFile(this.bucketName, filePath, finalFile);
+
+			return {
+				path: filePath,
+				name: finalFile.name,
+				type: finalFile.type,
+				size: finalFile.size,
+			};
 		} catch (e) {
 			console.error("Failed to add document", e);
 			throw e;
 		}
-	},
-
-	async getDocuments(individualId) {
-		const documents = await DocumentRepository.fetchIndividualDocuments(individualId);
-
-		// добавить signedUrl и creator_name
-		return await Promise.all(
-			documents.map(async doc => {
-				const signedUrl = await MinIOStorage.getSignedUrl(doc.file_key);
-				return {
-					...doc,
-					creator_name: doc.creator_name || "Unknown",
-					signed_url: signedUrl
-				};
-			})
-		);
 	},
 
 	async removeDocument(documentId) {
@@ -64,5 +73,10 @@ export default {
 
 	async _loadDocumetTypes(){
 		this.documentTypes = await DocumentRepository.fetchDocumentTypes();
+	},
+
+	_generateDocumentPath(individualId, docType, fileName) {
+		const unique = Date.now();
+		return `${individualId}/${docType}/${unique}_${fileName}`;
 	}
 }
