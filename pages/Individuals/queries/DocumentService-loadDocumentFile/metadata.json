@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_0d7e3945-0d77-4c7b-91ef-ff6c5a02df33",
-  "id": "Individuals_DocumentService.updateDocumentInfo",
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_254bcec9-e0e3-4b6a-9110-93652173fb79",
+  "id": "Individuals_DocumentService.loadDocumentFile",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -9,9 +9,6 @@
       "jsArguments": [
         {
           "name": "documentId"
-        },
-        {
-          "name": "data"
         }
       ],
       "paginationType": "NONE",
@@ -29,8 +26,8 @@
         "key": "body"
       }
     ],
-    "fullyQualifiedName": "DocumentService.updateDocumentInfo",
-    "name": "updateDocumentInfo",
+    "fullyQualifiedName": "DocumentService.loadDocumentFile",
+    "name": "loadDocumentFile",
     "pageId": "Individuals",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

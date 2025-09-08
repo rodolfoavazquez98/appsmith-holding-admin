@@ -3,6 +3,7 @@ export default {
 	objectsCatalog: 'documents', 
 	documentTypes: [],
 	individualDocuments: [],
+	loadedDocument: null,
 
 	async init(){
 		await this._loadDocumetTypes();
@@ -98,7 +99,16 @@ export default {
 		this.individualDocuments = await DocumentRepository.fetchIndividualDocuments(individualId);
 	},
 
-	async removeDocument(documentId) {
+	async loadDocumentFile(documentId){
+		const document = this.getIndividualDocuments().find(doc => doc.id === documentId);
+		if(document){
+			const file = await MinIOStorage.readFile(this.bucketName, document.dir + document.file_name);
+			console.log(file);
+			this.loadedDocument =  `data:application/pdf;base64,${file.fileData}`;
+		}
+	},
+
+	/*async removeDocument(documentId) {
 		const doc = await DocumentRepository.fetchDocumentById(documentId);
 		if (!doc) throw new Error("Document not found");
 
@@ -109,6 +119,10 @@ export default {
 
 	async updateDocumentInfo(documentId, data) {
 		return await DocumentRepository.updateDocument(documentId, data);
+	},*/
+
+	getLoadedDocument(){
+		return this.loadedDocument || null;
 	},
 
 	getDocumentTypes() {

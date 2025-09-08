@@ -17,6 +17,15 @@ export default {
 		}
 	},
 
+	async readFile(bucket, path){
+		try {
+			return await readFile.run({bucket, path});
+		} catch (e) {
+			console.error("Failed to read file", e);
+			return null;
+		}
+	},
+
 	async deleteFile(bucket, path) {
 		try {
 			return await deleteFile.run({ bucket, path });

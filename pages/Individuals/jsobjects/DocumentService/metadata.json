@@ -22,6 +22,10 @@
       {
         "name": "individualDocuments",
         "value": "[]"
+      },
+      {
+        "name": "loadedDocument",
+        "value": "null"
       }
     ]
   }
