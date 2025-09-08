@@ -100,6 +100,7 @@ export default {
 	},
 
 	async loadDocumentFile(documentId){
+		this.loadedDocument = null;
 		const document = this.getIndividualDocuments().find(doc => doc.id === documentId);
 		if(document){
 			const file = await MinIOStorage.readFile(this.bucketName, document.dir + document.file_name);
