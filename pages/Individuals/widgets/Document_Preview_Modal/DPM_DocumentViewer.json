@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "bottomRow": 48,
-  "docUrl": "{{DocumentService.getLoadedDocument();}}",
+  "docUrl": "{{DocumentService.getLoadedDocument().data;}}",
   "dynamicBindingPathList": [
     {
       "key": "docUrl"
@@ -19,6 +19,8 @@
   "mobileRightColumn": 25,
   "mobileTopRow": 5,
   "needsErrorInfo": false,
+  "originalBottomRow": 48,
+  "originalTopRow": 5,
   "parentColumnSpace": 6.9375,
   "parentId": "74biah48f9",
   "parentRowSpace": 10,
@@ -29,5 +31,5 @@
   "type": "DOCUMENT_VIEWER_WIDGET",
   "version": 1,
   "widgetId": "rqv8urkl37",
-  "widgetName": "DocumentViewer1"
+  "widgetName": "DPM_DocumentViewer"
 }

@@ -24,8 +24,8 @@
         "value": "[]"
       },
       {
-        "name": "loadedDocument",
-        "value": "null"
+        "name": "loadedDocumentFile",
+        "value": "{}"
       }
     ]
   }

@@ -11,9 +11,13 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1.25rem",
   "fontStyle": "BOLD",
@@ -29,13 +33,15 @@
   "mobileRightColumn": 41,
   "mobileTopRow": 1,
   "needsErrorInfo": false,
+  "originalBottomRow": 5,
+  "originalTopRow": 1,
   "overflow": "NONE",
   "parentId": "74biah48f9",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 41,
+  "rightColumn": 29,
   "shouldTruncate": false,
-  "text": "Modal Title",
+  "text": "{{Documents_Table.triggeredRow.type_name + \": \" + Individuals_Table.selectedRow.first_name + \" \" + Individuals_Table.selectedRow.last_name}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 1,

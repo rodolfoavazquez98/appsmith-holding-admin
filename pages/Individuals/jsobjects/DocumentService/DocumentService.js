@@ -3,7 +3,7 @@ export default {
 	objectsCatalog: 'documents', 
 	documentTypes: [],
 	individualDocuments: [],
-	loadedDocument: null,
+	loadedDocumentFile: {},
 
 	async init(){
 		await this._loadDocumetTypes();
@@ -100,12 +100,16 @@ export default {
 	},
 
 	async loadDocumentFile(documentId){
-		this.loadedDocument = null;
+		this.loadedDocumentFile = null;
 		const document = this.getIndividualDocuments().find(doc => doc.id === documentId);
 		if(document){
 			const file = await MinIOStorage.readFile(this.bucketName, document.dir + document.file_name);
-			console.log(file);
-			this.loadedDocument =  `data:application/pdf;base64,${file.fileData}`;
+			this.loadedDocumentFile ={
+				name: document.file_name,
+				type: document.mime_type,
+				size: file.fileData.length,
+				data: `data:${document.mime_type};base64,${file.fileData}`
+			}	
 		}
 	},
 
@@ -123,7 +127,7 @@ export default {
 	},*/
 
 	getLoadedDocument(){
-		return this.loadedDocument || null;
+		return this.loadedDocumentFile || null;
 	},
 
 	getDocumentTypes() {
