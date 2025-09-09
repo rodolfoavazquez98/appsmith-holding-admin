@@ -3,19 +3,15 @@ export default {
 	objectsCatalog: 'documents', 
 	documentTypes: [],
 	individualDocuments: [],
-	loadedDocumentFile: {},
+	loadedDocumentFile: null,
 
 	async init(){
 		await this._loadDocumetTypes();
 	},
 
-	async addDocument(individualId, documentTypeId, files) {
+	async addDocument(documentTypeId, files) {
 		try {
 			// --- 1. Validate input parameters ---
-			if (!individualId) {
-				throw new Error("Missing required parameter: individualId");
-			}
-
 			if (!documentTypeId) {
 				throw new Error("Missing required parameter: documentTypeId");
 			}
@@ -25,9 +21,10 @@ export default {
 			}
 
 			// --- 2. Check if individual exists ---
-			const individual = await IndividualRepository.fetchIndividualById(individualId);
+			const individual = await IndividualService.getSelectedIndividual();
+
 			if (!individual) {
-				throw new Error(`Individual with id=${individualId} not found`);
+				throw new Error("Missing Individual");
 			}
 
 			// --- 3. Classify files by type ---
@@ -73,7 +70,7 @@ export default {
 
 			// --- 9. Save document metadata to DB ---
 			await DocumentRepository.createDocument({
-				individual_id: individualId,
+				individual_id: individual.id,
 				document_type_id: documentTypeId,
 				file_name: fileName,
 				dir: dir,
@@ -95,8 +92,12 @@ export default {
 		}
 	},
 
-	async loadIndividualDocuments(individualId){
-		this.individualDocuments = await DocumentRepository.fetchIndividualDocuments(individualId);
+	async loadIndividualDocuments(){
+		const individual = await IndividualService.getSelectedIndividual();
+		if (!individual) {
+			throw new Error("Missing Individual Odject");
+		}
+		this.individualDocuments = await DocumentRepository.fetchIndividualDocuments(individual.id);
 	},
 
 	async loadDocumentFile(documentId){
@@ -104,12 +105,21 @@ export default {
 		const document = this.getIndividualDocuments().find(doc => doc.id === documentId);
 		if(document){
 			const file = await MinIOStorage.readFile(this.bucketName, document.dir + document.file_name);
-			this.loadedDocumentFile ={
+			return 	this.loadedDocumentFile ={
 				name: document.file_name,
 				type: document.mime_type,
 				size: file.fileData.length,
 				data: `data:${document.mime_type};base64,${file.fileData}`
 			}	
+		} else {
+			return null;
+		}
+	},
+
+	async downloadDocumetFile(documentId){
+		const document =  await this.loadDocumentFile(documentId);
+		if(document){
+			return {data: document.data, name: document.name, type: document.type};
 		}
 	},
 

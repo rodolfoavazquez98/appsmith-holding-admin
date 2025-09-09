@@ -40,11 +40,11 @@
     "dir",
     "mime_type",
     "type_code",
+    "customColumn1",
     "customColumn2",
-    "customColumn3",
-    "customColumn1"
+    "customColumn3"
   ],
-  "columnUpdatedAt": 1757416492879,
+  "columnUpdatedAt": 1757417148885,
   "columnWidthMap": {
     "customColumn1": 60,
     "customColumn2": 60,
@@ -55,7 +55,7 @@
   "customIsLoading": false,
   "customIsLoadingValue": "",
   "defaultPageSize": 0,
-  "defaultSelectedRowIndex": 0,
+  "defaultSelectedRowIndex": "-1",
   "defaultSelectedRowIndices": [
     0
   ],
@@ -122,11 +122,26 @@
     },
     {
       "key": "isVisiblePagination"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn2.onClick"
+    },
+    {
+      "key": "onRowSelected"
     }
   ],
   "dynamicTriggerPathList": [
     {
       "key": "primaryColumns.customColumn1.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn2.onClick"
+    },
+    {
+      "key": "onRowSelected"
     }
   ],
   "enableClientSideSearch": true,
@@ -150,6 +165,7 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 5,
   "needsErrorInfo": false,
+  "onRowSelected": "{{IndividualService.selectIndividual(Individuals_Table.selectedRow.id).then(()=>\nDocumentService.loadIndividualDocuments);}}",
   "originalBottomRow": 36,
   "originalTopRow": 10,
   "parentColumnSpace": 6.210906982421875,
@@ -157,7 +173,7 @@
   "parentRowSpace": 10,
   "primaryColumns": {
     "customColumn1": {
-      "alias": "",
+      "alias": "Preview",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "buttonColor": "{{Documents_Table.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
@@ -191,7 +207,7 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "",
+      "label": "Preview",
       "labelColor": "#FFFFFF",
       "menuButtonLabel": "Open Menu",
       "menuItems": {
@@ -210,7 +226,7 @@
       "onClick": "{{DocumentService.loadDocumentFile(Documents_Table.triggeredRow.id);\nshowModal(Document_Preview_Modal.name);}}",
       "originalId": "customColumn1",
       "sourceData": [],
-      "sticky": "right",
+      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -218,7 +234,7 @@
       "width": 150
     },
     "customColumn2": {
-      "alias": "",
+      "alias": "Download",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "borderRadius": "{{Documents_Table.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
@@ -244,11 +260,12 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "",
+      "label": "Download",
       "labelColor": "#FFFFFF",
       "notation": "standard",
+      "onClick": "{{ DocumentService.downloadDocumetFile(Documents_Table.triggeredRow.id).then(\n\tfile => download(\n\t\tfile.data, \n\t\tfile.name, \n\t\tfile.type\n\t)\n)\n}}",
       "originalId": "customColumn2",
-      "sticky": "right",
+      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -256,7 +273,7 @@
       "width": 150
     },
     "customColumn3": {
-      "alias": "",
+      "alias": "Delete",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "borderRadius": "{{Documents_Table.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
@@ -282,11 +299,11 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "",
+      "label": "Delete",
       "labelColor": "#FFFFFF",
       "notation": "standard",
       "originalId": "customColumn3",
-      "sticky": "right",
+      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},

@@ -101,7 +101,7 @@
       "widgetName": "Canvas6"
     }
   ],
-  "defaultTab": "Documents",
+  "defaultTab": "Details",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -111,14 +111,26 @@
     },
     {
       "key": "boxShadow"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicTriggerPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onTabSelected"
+    }
+  ],
   "flexVerticalAlignment": "stretch",
   "isCanvas": true,
   "isLoading": false,
-  "isVisible": true,
+  "isVisible": "{{Individuals_Table.selectedRowIndex >= 0}}",
   "key": "p3yeq5t59k",
   "leftColumn": 30,
   "maxDynamicHeight": 9000,
@@ -129,6 +141,7 @@
   "mobileRightColumn": 48,
   "mobileTopRow": 1,
   "needsErrorInfo": false,
+  "onTabSelected": "",
   "originalBottomRow": 42,
   "originalTopRow": 0,
   "parentColumnSpace": 13.0625,
@@ -142,7 +155,7 @@
   "tabsObj": {
     "tab1": {
       "id": "tab1",
-      "index": 1,
+      "index": 0,
       "isDuplicateLabel": false,
       "isVisible": true,
       "label": "Details",
@@ -151,7 +164,7 @@
     },
     "tab2": {
       "id": "tab2",
-      "index": 0,
+      "index": 1,
       "isDuplicateLabel": false,
       "isVisible": true,
       "label": "Documents",

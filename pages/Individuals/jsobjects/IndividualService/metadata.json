@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_40361f06-13ec-4d54-8123-95dd11471cf3",
+  "id": "Individuals_IndividualService",
+  "unpublishedCollection": {
+    "name": "IndividualService",
+    "pageId": "Individuals",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "selectedIndividual",
+        "value": "null"
+      }
+    ]
+  }
+}

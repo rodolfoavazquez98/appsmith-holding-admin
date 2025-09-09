@@ -148,7 +148,7 @@
   "labelTextSize": "0.875rem",
   "leftColumn": 0,
   "onPageChange": "{{SelectQuery.run()}}",
-  "onRowSelected": "{{DocumentService.loadIndividualDocuments(Individuals_Table.selectedRow.id)}}",
+  "onRowSelected": "{{\nIndividualService.selectIndividual(Individuals_Table.selectedRow.id).then(() => DocumentService.loadIndividualDocuments())\n}}",
   "onSearchTextChanged": "{{SelectQuery.run()}}",
   "onSort": "{{SelectQuery.run()}}",
   "parentColumnSpace": 16.3125,

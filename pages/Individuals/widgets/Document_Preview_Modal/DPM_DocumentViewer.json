@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "bottomRow": 48,
-  "docUrl": "{{DocumentService.getLoadedDocument().data;}}",
+  "docUrl": "{{DocumentService.getLoadedDocument()?.data || null;}}",
   "dynamicBindingPathList": [
     {
       "key": "docUrl"

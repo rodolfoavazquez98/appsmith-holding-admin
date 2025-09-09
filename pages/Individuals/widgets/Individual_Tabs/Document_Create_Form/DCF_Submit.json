@@ -14,7 +14,11 @@
       "key": "borderRadius"
     }
   ],
-  "dynamicPropertyPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
   "dynamicTriggerPathList": [
     {
       "key": "onClick"
@@ -34,7 +38,7 @@
   "mobileRightColumn": 62,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "onClick": "{{DocumentService.addDocument(Individuals_Table.selectedRow.id, DCF_DocType_Select.selectedOptionValue, DCF_Doc_FilePicker.files);}}",
+  "onClick": "{{DocumentService.addDocument(DCF_DocType_Select.selectedOptionValue, DCF_Doc_FilePicker.files);}}",
   "parentId": "wexu6fyuj6",
   "placement": "CENTER",
   "recaptchaType": "V3",
