@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 36,
+  "bottomRow": 32,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": true,
@@ -128,9 +128,6 @@
     },
     {
       "key": "primaryColumns.customColumn2.onClick"
-    },
-    {
-      "key": "onRowSelected"
     }
   ],
   "dynamicTriggerPathList": [
@@ -165,7 +162,7 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 5,
   "needsErrorInfo": false,
-  "onRowSelected": "{{IndividualService.selectIndividual(Individuals_Table.selectedRow.id).then(()=>\nDocumentService.loadIndividualDocuments);}}",
+  "onRowSelected": "",
   "originalBottomRow": 36,
   "originalTopRow": 10,
   "parentColumnSpace": 6.210906982421875,
@@ -589,7 +586,7 @@
   "searchKey": "",
   "tableData": "{{DocumentService.getIndividualDocuments()}}",
   "textSize": "0.875rem",
-  "topRow": 10,
+  "topRow": 6,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,

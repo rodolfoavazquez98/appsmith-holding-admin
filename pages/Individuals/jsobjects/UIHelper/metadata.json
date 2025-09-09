@@ -1,0 +1,20 @@
+{
+  "gitSyncId": "68b935f4a1ac1d41e88e6ef0_f42315f2-b684-4619-8103-a36aaee51894",
+  "id": "Individuals_UIHelper",
+  "unpublishedCollection": {
+    "name": "UIHelper",
+    "pageId": "Individuals",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "deleteContext",
+        "value": "{\n  entityId: null,\n  entityName: null,\n  deleteAction: null\n}"
+      },
+      {
+        "name": "isDeleting",
+        "value": "false"
+      }
+    ]
+  }
+}
